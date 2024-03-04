@@ -1,0 +1,64 @@
+﻿<Page x:Class="DEX.Page1"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:DEX"
+      mc:Ignorable="d"
+      d:DesignHeight="768"
+      d:DesignWidth="1366"
+      Title="Page1">
+
+    <Page.Resources>
+        <Style TargetType="ListBox"
+               x:Key="EmptyListBoxStyle">
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding Items.Count, ElementName=LB_SearchBarResults}"
+                             Value="0">
+                    <Setter Property="Visibility"
+                            Value="Collapsed" />
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+    </Page.Resources>
+
+    <Grid Background="{DynamicResource {x:Static SystemColors.InfoBrushKey}}">
+        <Button x:Name="BT_Login"
+                Content="Login"
+                HorizontalAlignment="Left"
+                Margin="708,125,0,0"
+                VerticalAlignment="Top"
+                Height="50"
+                Width="100"
+                Background="#FF8978DC"
+                FontSize="25" />
+        <Button Content="Joc"
+                HorizontalAlignment="Left"
+                Margin="558,125,0,0"
+                VerticalAlignment="Top"
+                Height="50"
+                Width="100"
+                BorderBrush="#FFB6FB42"
+                Background="#FFEAFB4F"
+                FontSize="25" />
+        <TextBox x:Name="TB_SearchBar"
+                 HorizontalAlignment="Center"
+                 Margin="0,225,0,0"
+                 TextWrapping="Wrap"
+                 Text="insert word"
+                 VerticalAlignment="Top"
+                 Width="750"
+                 Height="50"
+                 GotFocus="TB_SearchBar_OnGotFocus"
+                 LostFocus="TB_SearchBar_OnLostFocus"
+                 FontSize="25"
+                 Background="White"
+                 TextChanged="TB_SearchBar_TextChanged" />
+        <ListBox x:Name="LB_SearchBarResults"
+                 VerticalAlignment="Top"
+                 Style="{StaticResource EmptyListBoxStyle}"
+                 SelectionChanged="LB_SearchBarResults_OnSelectionChanged"
+                 Margin="308,275,308,0" />
+
+    </Grid>
+</Page>
