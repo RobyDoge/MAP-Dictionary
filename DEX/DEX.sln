@@ -5,13 +5,29 @@ VisualStudioVersion = 17.9.34616.47
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DEX", "DEX.csproj", "{F309F7B9-3605-48B5-98F1-A9DECDB28080}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{E278C5BF-1858-43AD-9103-A2B7A274BD0A}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "XML Files", "XML Files", "{E278C5BF-1858-43AD-9103-A2B7A274BD0A}"
 	ProjectSection(SolutionItems) = preProject
 		AdminDB.xml = AdminDB.xml
 		WordsDB.xml = WordsDB.xml
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Window_Login", "Window_Login", "{75D15B44-9208-4633-B291-998746B04A49}"
+	ProjectSection(SolutionItems) = preProject
+		WD_Login.xaml = WD_Login.xaml
+		WD_Login.xaml.cs = WD_Login.xaml.cs
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MainPage", "MainPage", "{91A9B0E0-EDA3-4176-BA51-42ADEB8A6020}"
+	ProjectSection(SolutionItems) = preProject
+		Page1.xaml = Page1.xaml
+		Page1.xaml.cs = Page1.xaml.cs
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DBHandler", "DBHandler", "{3ABD9F37-1C15-4041-BE1D-C9FC25BEBA75}"
+	ProjectSection(SolutionItems) = preProject
+		UserDBHandler.cs = UserDBHandler.cs
+		WordsDBHandler.cs = WordsDBHandler.cs
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
