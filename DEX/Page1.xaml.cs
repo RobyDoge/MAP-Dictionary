@@ -24,8 +24,10 @@ namespace DEX
         private WordsDBHandler wordsDBHandler;
         public Page1()
         {
-            this.wordsDBHandler = new WordsDBHandler("D:/1FACULTATE/Anu II/MAP/MAP-Dictionary/DEX/WordsDB.xml");
+            this.wordsDBHandler = new WordsDBHandler("../../../WordsDB.xml");
             InitializeComponent();
+            WD_Login test = new();
+            test.Show();
         }
         private void TB_SearchBar_OnLostFocus(object sender, RoutedEventArgs e)
         {
