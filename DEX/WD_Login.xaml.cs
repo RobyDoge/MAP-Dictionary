@@ -1,22 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+
+using DBHandlers;
 
 namespace DEX
 {
-    /// <summary>
-    /// Interaction logic for WD_Login.xaml
-    /// </summary>
     public partial class WD_Login : Window
     {
         public WD_Login()
@@ -53,5 +41,27 @@ namespace DEX
             TextBox textBox = (TextBox)sender;
             textBox.Text = "";
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            var username = (string)TB_Username.Text;
+            var password = (string)TB_Password.Text;
+            if (UserDBHandler.CheckUsernameAndPassword(username, password))
+                WrongEntry();
+            CorrectEntry();
+        }
+
+        private void CorrectEntry()
+        {
+            Hide();
+            //send signal to main window to chnage the  page to administration
+        }
+
+        private void WrongEntry()
+        {
+            TBL_WrongEntry.IsEnabled = true;
+        }
+
+
     }
 }

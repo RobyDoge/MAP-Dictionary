@@ -3,13 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34616.47
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DEX", "DEX.csproj", "{F309F7B9-3605-48B5-98F1-A9DECDB28080}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DEX", "DEX.csproj", "{F309F7B9-3605-48B5-98F1-A9DECDB28080}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{E278C5BF-1858-43AD-9103-A2B7A274BD0A}"
 	ProjectSection(SolutionItems) = preProject
 		AdminDB.xml = AdminDB.xml
 		WordsDB.xml = WordsDB.xml
 	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Window_Login", "Window_Login", "{75D15B44-9208-4633-B291-998746B04A49}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

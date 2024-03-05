@@ -26,8 +26,6 @@ namespace DEX
         {
             this.wordsDBHandler = new WordsDBHandler("../../../WordsDB.xml");
             InitializeComponent();
-            WD_Login test = new();
-            test.Show();
         }
         private void TB_SearchBar_OnLostFocus(object sender, RoutedEventArgs e)
         {

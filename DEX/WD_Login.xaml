@@ -5,34 +5,44 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DEX"
         mc:Ignorable="d"
-        Title="WD_Login" Height="300" Width="300">
+        Title="WD_Login"
+        Height="300"
+        Width="300">
     <Grid>
-        <TextBox x:Name="TB_Username" 
-                 HorizontalAlignment="Center" 
-                 Margin="0,50,0,0" 
+        <TextBox x:Name="TB_Username"
+                 HorizontalAlignment="Center"
+                 Margin="0,50,0,0"
                  TextWrapping="Wrap"
-                 Text="insert username" 
+                 Text="insert username"
                  VerticalAlignment="Top"
                  GotFocus="TB_Username_OnGotFocus"
                  LostFocus="TB_Username_OnLostFocus"
-                 Width="250" 
-                 FontSize="20"/>
-        <TextBox x:Name="TB_Password" 
-                   HorizontalAlignment="Center"
-                   Margin="0,113,0,0" 
-                   TextWrapping="Wrap" 
-                   Text="inser password" 
-                   VerticalAlignment="Top"
-                   GotFocus="TB_Password_OnGotFocus"
-                   LostFocus="TB_Password_OnLostFocus"
-                   Width="250" 
-                FontSize="20"/>
-        <Button Content="Button" 
+                 Width="250"
+                 FontSize="20" />
+        <TextBox x:Name="TB_Password"
+                 HorizontalAlignment="Center"
+                 Margin="0,113,0,0"
+                 TextWrapping="Wrap"
+                 Text="inser password"
+                 VerticalAlignment="Top"
+                 GotFocus="TB_Password_OnGotFocus"
+                 LostFocus="TB_Password_OnLostFocus"
+                 Width="250"
+                 FontSize="20" />
+        <Button Content="Button"
                 HorizontalAlignment="Center"
-                Margin="0,192,0,0" 
-                VerticalAlignment="Top" 
-                Height="30" 
-                Width="80"/>
+                Margin="0,163,0,0"
+                VerticalAlignment="Top"
+                Height="30"
+                Width="80"
+                Click="Button_Click" />
+        <TextBlock Name="TBL_WrongEntry" 
+                 HorizontalAlignment="Center"
+                 Margin="0,210,0,0"
+                 TextWrapping="Wrap"
+                 Text="Wrong Username or Password"
+                 VerticalAlignment="Top"
+                 Width="120"/>
 
     </Grid>
 </Window>
