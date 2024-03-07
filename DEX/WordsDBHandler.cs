@@ -11,10 +11,12 @@ namespace DBHandlers
 
     internal class WordsDBHandler
     {
-        private Dictionary<string, MeaningAndImage> dictionary;
+        private Dictionary<string, MeaningAndImage> wordDictionary;
+        private Dictionary<string, List<string>> categoryDictionary;
         public WordsDBHandler(string path)
         {
-            dictionary = new();
+            wordDictionary = new();
+            categoryDictionary = new();
 
             XmlDocument xmlDoc = new();
             xmlDoc.Load(path);
@@ -27,6 +29,7 @@ namespace DBHandlers
                 string name = node.Attributes?["name"].Value.ToLower();
                 string meaning = node.Attributes?["meaning"].Value.ToLower();
                 string imagePath = node.Attributes?["imagePath"].Value.ToLower();
+                string category = node.Attributes?["category"].Value.ToLower();
                 if (imagePath == "")
                 {
                     //TBA: default image
@@ -38,20 +41,31 @@ namespace DBHandlers
                     ImagePath = imagePath
                 };
 
-                dictionary.Add(name, meaningAndImage);
+                wordDictionary.Add(name, meaningAndImage);
+                if (!categoryDictionary.ContainsKey(category))
+                {
+                    categoryDictionary.Add(category, []);
+                }
+                categoryDictionary[category].Add(name);
             }
         }
 
         public MeaningAndImage GetMeaningAndImage(string word)
         {
-            return dictionary[word];
+            return wordDictionary[word];
         }
-        public List<string> GetSimilarWords(string prefix)
+        public List<string> GetSimilarWordsWithoutCategory(string prefix)
         {
-            return dictionary.Keys.Where(word => word.StartsWith(prefix)).ToList();
+            return wordDictionary.Keys.Where(word => word.StartsWith(prefix)).ToList();
         }
-        
-
+        public List<string> GetSimilarWordsWithCategory(string prefix, string category)
+        {
+            return wordDictionary.Keys.Where(word => word.StartsWith(prefix) && categoryDictionary[category].Contains(word)).ToList();
+        }
+        public List<string> GetCategories()
+        {
+            return categoryDictionary.Keys.ToList();
+        }
     }
 }
 

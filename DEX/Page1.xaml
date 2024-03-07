@@ -1,11 +1,11 @@
 ﻿<Page x:Class="DEX.Page1"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:local="clr-namespace:DEX"
       mc:Ignorable="d"
-      d:DesignHeight="768"
+      d:DesignHeight="789"
       d:DesignWidth="1366"
       Title="Page1">
 
@@ -18,32 +18,43 @@
                     <Setter Property="Visibility"
                             Value="Collapsed" />
                 </DataTrigger>
+                <DataTrigger Binding="{Binding Items.Count, ElementName=LB_CategorySelector}"
+                             Value="0">
+                    <Setter Property="Visibility"
+                            Value="Collapsed" />
+                </DataTrigger>
             </Style.Triggers>
         </Style>
     </Page.Resources>
 
     <Grid Background="{DynamicResource {x:Static SystemColors.InfoBrushKey}}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="14*" />
+            <ColumnDefinition Width="1343*" />
+        </Grid.ColumnDefinitions>
         <Button x:Name="BT_Login"
                 Content="Login"
                 HorizontalAlignment="Left"
-                Margin="708,125,0,0"
+                Margin="694,125,0,0"
                 VerticalAlignment="Top"
                 Height="50"
                 Width="100"
                 Background="#FF8978DC"
-                FontSize="25" />
+                FontSize="25"
+                Grid.Column="1" />
         <Button Content="Joc"
                 HorizontalAlignment="Left"
-                Margin="558,125,0,0"
+                Margin="544,125,0,0"
                 VerticalAlignment="Top"
                 Height="50"
                 Width="100"
                 BorderBrush="#FFB6FB42"
                 Background="#FFEAFB4F"
-                FontSize="25" />
+                FontSize="25"
+                Grid.Column="1" />
         <TextBox x:Name="TB_SearchBar"
-                 HorizontalAlignment="Center"
-                 Margin="0,225,0,0"
+                 HorizontalAlignment="Left"
+                 Margin="289,225,0,0"
                  TextWrapping="Wrap"
                  Text="insert word"
                  VerticalAlignment="Top"
@@ -53,12 +64,31 @@
                  LostFocus="TB_SearchBar_OnLostFocus"
                  FontSize="25"
                  Background="White"
-                 TextChanged="TB_SearchBar_TextChanged" />
+                 TextChanged="TB_SearchBar_TextChanged"
+                 Grid.Column="1" />
         <ListBox x:Name="LB_SearchBarResults"
                  VerticalAlignment="Top"
                  Style="{StaticResource EmptyListBoxStyle}"
                  SelectionChanged="LB_SearchBarResults_OnSelectionChanged"
-                 Margin="308,275,308,0" />
+                 Margin="294,275,308,0"
+                 Grid.Column="1" />
+        <ListBox x:Name="LB_CategorySelector"
+                 VerticalAlignment="Top"
+                 Style="{StaticResource EmptyListBoxStyle}"
+                 SelectionChanged="LB_CategorySelector_OnSelectionChanged"
+                 Margin="289,275,313,0"
+                 Grid.Column="1"
+                 Height="514" />
+        <Button x:Name="BT_CategorySelector"
+                Content="Search By Category"
+                HorizontalAlignment="Left"
+                Margin="289,192,0,0"
+                Height="33"
+                Width="198"
+                FontSize="20"
+                Grid.Column="1"
+                VerticalAlignment="Top"
+                Click="Button_Click" />
 
     </Grid>
 </Page>

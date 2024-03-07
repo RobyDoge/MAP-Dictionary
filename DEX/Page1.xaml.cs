@@ -1,18 +1,6 @@
 ﻿using DBHandlers;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace DEX
 {
@@ -21,6 +9,7 @@ namespace DEX
     /// </summary>
     public partial class Page1 : Page
     {
+        private string currentCategory = "default";
         private WordsDBHandler wordsDBHandler;
         public Page1()
         {
@@ -47,7 +36,7 @@ namespace DEX
             var prefix = TB_SearchBar.Text.ToLower();
             if (prefix == "") return;
 
-            var similarWords = wordsDBHandler.GetSimilarWords(prefix);
+            var similarWords = currentCategory == "default" ? wordsDBHandler.GetSimilarWordsWithoutCategory(prefix) : wordsDBHandler.GetSimilarWordsWithCategory(prefix, currentCategory);
             if (LB_SearchBarResults is null) return;
 
             const int maxItemsShown = 30;
@@ -60,6 +49,21 @@ namespace DEX
         private void LB_SearchBarResults_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             throw new NotImplementedException();
+            ;
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            const int maxItemsShown = 30;
+            const int textHeight = 20;
+            LB_CategorySelector.ItemsSource = wordsDBHandler.GetCategories();
+            LB_CategorySelector.Height = textHeight * Math.Min(maxItemsShown, wordsDBHandler.GetCategories().Count);
+        }
+
+        private void LB_CategorySelector_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            currentCategory = (string)LB_CategorySelector.SelectedItem;
+            LB_CategorySelector.ItemsSource = null;
         }
     }
 }
