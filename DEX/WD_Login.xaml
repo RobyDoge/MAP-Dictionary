@@ -41,6 +41,7 @@
                  Margin="0,210,0,0"
                  TextWrapping="Wrap"
                  Text="Wrong Username or Password"
+                 Visibility="Hidden"
                  VerticalAlignment="Top"
                  Width="120"/>
 

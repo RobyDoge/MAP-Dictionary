@@ -50,9 +50,9 @@ namespace DBHandlers
             }
         }
 
-        public MeaningAndImage GetMeaningAndImage(string word)
+        public KeyValuePair<string,MeaningAndImage> GetWord(string? word)
         {
-            return wordDictionary[word];
+            return wordDictionary.FirstOrDefault(pair => pair.Key == word);
         }
         public List<string> GetSimilarWordsWithoutCategory(string prefix)
         {

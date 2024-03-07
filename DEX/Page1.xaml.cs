@@ -48,22 +48,37 @@ namespace DEX
 
         private void LB_SearchBarResults_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            throw new NotImplementedException();
-            ;
+            if (LB_SearchBarResults.SelectedItem is null) return;
+            Page_WordDescription pageWordDescription = new(wordsDBHandler.GetWord(LB_SearchBarResults.SelectedItem.ToString()));
+            NavigationService?.Navigate(pageWordDescription);
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        /*
+         * Category Selection
+         */
+        private void BT_CategorySelector_Click(object sender, RoutedEventArgs e)
         {
-            const int maxItemsShown = 30;
-            const int textHeight = 20;
-            LB_CategorySelector.ItemsSource = wordsDBHandler.GetCategories();
-            LB_CategorySelector.Height = textHeight * Math.Min(maxItemsShown, wordsDBHandler.GetCategories().Count);
+            CategorySelector choiceWindow = new(wordsDBHandler.GetCategories());
+            choiceWindow.ShowDialog();
+
+            currentCategory = choiceWindow.SelectedCategory ?? "default";
         }
 
-        private void LB_CategorySelector_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
+        /*
+         * login 
+         */
+        private void BT_Login_OnClick(object sender, RoutedEventArgs e)
         {
-            currentCategory = (string)LB_CategorySelector.SelectedItem;
-            LB_CategorySelector.ItemsSource = null;
+            WD_Login loginWindow = new();
+            loginWindow.LoginSuccess += LoginWindow_LoginSuccess;
+            loginWindow.ShowDialog();
+
+
+        }
+        private void LoginWindow_LoginSuccess(object sender, EventArgs e)
+        {
+            ((WD_Login)sender).Close();
+            
         }
     }
 }

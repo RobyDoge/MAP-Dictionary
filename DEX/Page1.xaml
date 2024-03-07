@@ -18,11 +18,6 @@
                     <Setter Property="Visibility"
                             Value="Collapsed" />
                 </DataTrigger>
-                <DataTrigger Binding="{Binding Items.Count, ElementName=LB_CategorySelector}"
-                             Value="0">
-                    <Setter Property="Visibility"
-                            Value="Collapsed" />
-                </DataTrigger>
             </Style.Triggers>
         </Style>
     </Page.Resources>
@@ -32,6 +27,7 @@
             <ColumnDefinition Width="14*" />
             <ColumnDefinition Width="1343*" />
         </Grid.ColumnDefinitions>
+        <Frame Name="DescriptionFrame"></Frame>
         <Button x:Name="BT_Login"
                 Content="Login"
                 HorizontalAlignment="Left"
@@ -41,7 +37,8 @@
                 Width="100"
                 Background="#FF8978DC"
                 FontSize="25"
-                Grid.Column="1" />
+                Grid.Column="1" 
+                Click="BT_Login_OnClick"/>
         <Button Content="Joc"
                 HorizontalAlignment="Left"
                 Margin="544,125,0,0"
@@ -72,13 +69,6 @@
                  SelectionChanged="LB_SearchBarResults_OnSelectionChanged"
                  Margin="294,275,308,0"
                  Grid.Column="1" />
-        <ListBox x:Name="LB_CategorySelector"
-                 VerticalAlignment="Top"
-                 Style="{StaticResource EmptyListBoxStyle}"
-                 SelectionChanged="LB_CategorySelector_OnSelectionChanged"
-                 Margin="289,275,313,0"
-                 Grid.Column="1"
-                 Height="514" />
         <Button x:Name="BT_CategorySelector"
                 Content="Search By Category"
                 HorizontalAlignment="Left"
@@ -88,7 +78,7 @@
                 FontSize="20"
                 Grid.Column="1"
                 VerticalAlignment="Top"
-                Click="Button_Click" />
+                Click="BT_CategorySelector_Click" />
 
     </Grid>
 </Page>

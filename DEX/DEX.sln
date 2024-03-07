@@ -29,6 +29,18 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DBHandler", "DBHandler", "{
 		WordsDBHandler.cs = WordsDBHandler.cs
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Window_Category", "Window_Category", "{CA48C8F7-983A-4236-AAEE-8925B4BA2D9B}"
+	ProjectSection(SolutionItems) = preProject
+		CategorySelector.xaml = CategorySelector.xaml
+		CategorySelector.xaml.cs = CategorySelector.xaml.cs
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Page_WordDescription", "Page_WordDescription", "{44922AB6-C9A3-42E5-BD1E-859BD04AB72B}"
+	ProjectSection(SolutionItems) = preProject
+		Page_WordDescription.xaml = Page_WordDescription.xaml
+		Page_WordDescription.xaml.cs = Page_WordDescription.xaml.cs
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

@@ -12,6 +12,8 @@ namespace DEX
             InitializeComponent();
         }
 
+        public event EventHandler LoginSuccess;
+
         private void TB_Password_OnLostFocus(object sender, RoutedEventArgs e)
         {
             TextBox textBox = (TextBox)sender;
@@ -47,19 +49,19 @@ namespace DEX
             var username = (string)TB_Username.Text;
             var password = (string)TB_Password.Text;
             if (UserDBHandler.CheckUsernameAndPassword(username, password))
-                WrongEntry();
-            CorrectEntry();
+                CorrectEntry();
+            WrongEntry();
         }
 
         private void CorrectEntry()
         {
             Hide();
-            //send signal to main window to chnage the  page to administration
+            LoginSuccess?.Invoke(this, EventArgs.Empty);
         }
 
         private void WrongEntry()
         {
-            TBL_WrongEntry.IsEnabled = true;
+            TBL_WrongEntry.Visibility = Visibility.Visible;
         }
 
 
