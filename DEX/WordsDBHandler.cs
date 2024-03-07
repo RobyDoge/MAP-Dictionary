@@ -9,7 +9,7 @@ namespace DBHandlers
         public string ImagePath;
     }
 
-    internal class WordsDBHandler
+    public class WordsDBHandler
     {
         private Dictionary<string, MeaningAndImage> wordDictionary;
         private Dictionary<string, List<string>> categoryDictionary;

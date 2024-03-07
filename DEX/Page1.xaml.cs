@@ -4,9 +4,6 @@ using System.Windows.Controls;
 
 namespace DEX
 {
-    /// <summary>
-    /// Interaction logic for Page1.xaml
-    /// </summary>
     public partial class Page1 : Page
     {
         private string currentCategory = "default";
@@ -78,7 +75,8 @@ namespace DEX
         private void LoginWindow_LoginSuccess(object sender, EventArgs e)
         {
             ((WD_Login)sender).Close();
-            
+            Page_Admin pageAdmin = new(wordsDBHandler);
+            NavigationService?.Navigate(pageAdmin);
         }
     }
 }

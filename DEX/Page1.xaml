@@ -28,6 +28,7 @@
             <ColumnDefinition Width="1343*" />
         </Grid.ColumnDefinitions>
         <Frame Name="DescriptionFrame"></Frame>
+        <Frame Name="AdminFrame"></Frame>
         <Button x:Name="BT_Login"
                 Content="Login"
                 HorizontalAlignment="Left"

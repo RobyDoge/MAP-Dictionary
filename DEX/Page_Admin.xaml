@@ -1,0 +1,45 @@
+﻿<Page x:Class="DEX.Page_Admin"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:local="clr-namespace:DEX"
+      mc:Ignorable="d"
+      d:DesignHeight="789"
+      d:DesignWidth="1366"
+      Title="Page_Admin">
+
+    <Grid Background="{DynamicResource {x:Static SystemColors.InfoBrushKey}}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="14*" />
+            <ColumnDefinition Width="1343*" />
+        </Grid.ColumnDefinitions>
+        <Button Grid.Column="1"
+                Name="BT_AddWord"
+                Content="Add Word"
+                HorizontalAlignment="Left"
+                Margin="219,0,0,0"
+                VerticalAlignment="Center"
+                Height="143"
+                Width="206"
+                Click="BT_AddWord_Click" />
+        <Button Grid.Column="1"
+                Name="BT_EditWord"
+                Content="Edit Word"
+                HorizontalAlignment="Left"
+                Margin="570,0,0,0"
+                VerticalAlignment="Center"
+                Height="143"
+                Width="206"
+                Click="BT_EditWord_Click" />
+        <Button Grid.Column="1"
+                Name="BT_DeleteWord"
+                Content="Delete Word"
+                HorizontalAlignment="Left"
+                Margin="889,0,0,0"
+                VerticalAlignment="Center"
+                Height="143"
+                Width="206"
+                Click="BT_DeleteWord_Click" />
+    </Grid>
+</Page>
