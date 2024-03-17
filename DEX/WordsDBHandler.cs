@@ -33,7 +33,7 @@ namespace DBHandlers
                 if (imagePath == "")
                 {
                     //TBA: default image
-                    imagePath = "noImage.png";
+                    imagePath = "tba";
                 }
                 MeaningAndImage meaningAndImage = new()
                 {
@@ -65,6 +65,68 @@ namespace DBHandlers
         public List<string> GetCategories()
         {
             return categoryDictionary.Keys.ToList();
+        }
+
+        public bool AddWord(string word, string category, string definition, string imagePath)
+        {
+            word = word.ToLower();
+            if (wordDictionary.ContainsKey(word))
+            {
+                return false;
+            }
+
+            if (imagePath == "")
+            {
+                //TBA: default image
+                imagePath = "tba";
+            }
+
+            if (!categoryDictionary.ContainsKey(category))
+            {
+                categoryDictionary.Add(category, []);
+            }
+            categoryDictionary[category].Add(word);
+
+            var meaningAndImage = new MeaningAndImage()
+            {
+                Meaning = definition,
+                ImagePath = imagePath
+            };
+            wordDictionary.Add(word, meaningAndImage);
+            return UpdateXML();
+        }
+
+        private bool UpdateXML()
+        {
+            XmlDocument xmlDoc = new();
+            XmlNode rootNode = xmlDoc.CreateElement("Words");
+            xmlDoc.AppendChild(rootNode);
+
+            foreach (var word in wordDictionary)
+            {
+                XmlNode wordNode = xmlDoc.CreateElement("Word");
+                XmlAttribute nameAttribute = xmlDoc.CreateAttribute("name");
+                nameAttribute.Value = word.Key;
+                wordNode.Attributes.Append(nameAttribute);
+
+                XmlAttribute meaningAttribute = xmlDoc.CreateAttribute("meaning");
+                meaningAttribute.Value = word.Value.Meaning;
+                wordNode.Attributes.Append(meaningAttribute);
+
+                XmlAttribute imagePathAttribute = xmlDoc.CreateAttribute("imagePath");
+                imagePathAttribute.Value = word.Value.ImagePath[1..]; // Remove the first character of the image path
+                wordNode.Attributes.Append(imagePathAttribute);
+
+                XmlAttribute categoryAttribute = xmlDoc.CreateAttribute("category");
+                categoryAttribute.Value = categoryDictionary.FirstOrDefault(pair => pair.Value.Contains(word.Key)).Key;
+                wordNode.Attributes.Append(categoryAttribute);
+
+                rootNode.AppendChild(wordNode);
+            }
+
+            xmlDoc.Save("../../../WordsDB.xml");
+            return true;
+
         }
     }
 }

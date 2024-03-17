@@ -50,9 +50,6 @@ namespace DEX
             NavigationService?.Navigate(pageWordDescription);
         }
 
-        /*
-         * Category Selection
-         */
         private void BT_CategorySelector_Click(object sender, RoutedEventArgs e)
         {
             CategorySelector choiceWindow = new(wordsDBHandler.GetCategories());
@@ -61,9 +58,6 @@ namespace DEX
             currentCategory = choiceWindow.SelectedCategory ?? "default";
         }
 
-        /*
-         * login 
-         */
         private void BT_Login_OnClick(object sender, RoutedEventArgs e)
         {
             WD_Login loginWindow = new();

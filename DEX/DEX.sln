@@ -41,7 +41,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Page_WordDescription", "Pag
 		Page_WordDescription.xaml.cs = Page_WordDescription.xaml.cs
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{4D34F429-7CC8-4C62-B019-ED591A10313D}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Window_AddWord", "Window_AddWord", "{4D34F429-7CC8-4C62-B019-ED591A10313D}"
+	ProjectSection(SolutionItems) = preProject
+		WD_AddWord.xaml = WD_AddWord.xaml
+		WD_AddWord.xaml.cs = WD_AddWord.xaml.cs
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Page_Admin", "Page_Admin", "{CA083D5B-8FDC-4610-BB48-BE737A645FA0}"
 	ProjectSection(SolutionItems) = preProject

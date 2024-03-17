@@ -33,10 +33,21 @@ namespace DEX
             ImagePath = wordPair.Value.ImagePath;
             TB_Word.Text = Word;
             TB_WordDefinition.Text = Meaning;
-            IM_Image.Source = ImagePath == "tba" ? new BitmapImage(new Uri("https://via.placeholder.com/150")) : new BitmapImage(new Uri(ImagePath));
-            
+            if (ImagePath == "tba")
+            {
+                IM_Image.Source = new BitmapImage(new Uri("https://via.placeholder.com/150"));
+            }
+            else
+            {
+                string absolutePath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, ImagePath);
+                var bitmap = new BitmapImage();
+                bitmap.BeginInit();
+                bitmap.UriSource = new Uri(absolutePath);
+                bitmap.EndInit();
+                IM_Image.Source = bitmap;
+            }
+
+
         }
-
-
     }
 }

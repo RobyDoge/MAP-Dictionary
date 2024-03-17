@@ -22,7 +22,7 @@
                VerticalAlignment="Top"
                Width="500"
                RenderTransformOrigin="0.484,0.593" />
-        <TextBlock Name="TB_WordDefinition"
+        <TextBlock Name="TB_Word"
                    Grid.Column="1"
                    HorizontalAlignment="Left"
                    Margin="57,0,0,0"
@@ -33,7 +33,7 @@
                    Width="154"
                    Background="White"
                    TextAlignment="Center" />
-        <TextBlock Name="TB_Word"
+        <TextBlock Name="TB_WordDefinition"
                    Grid.Column="1"
                    HorizontalAlignment="Left"
                    Margin="337,159,0,0"

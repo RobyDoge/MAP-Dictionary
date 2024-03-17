@@ -17,7 +17,8 @@ namespace DEX
 
         private void BT_AddWord_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-
+            WD_AddWord wdAddWord = new(DbHandler);
+            wdAddWord.Show();
         }
 
         private void BT_EditWord_Click(object sender, System.Windows.RoutedEventArgs e)
