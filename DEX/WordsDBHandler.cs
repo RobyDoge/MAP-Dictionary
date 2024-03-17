@@ -125,6 +125,46 @@ namespace DBHandlers
             return true;
 
         }
+
+        public bool WordExists(string word)
+        {
+            return wordDictionary.ContainsKey(word);
+        }
+
+        public List<string> GetWordInfo(string word)
+        {
+            List<string> wordInfo =
+            [
+                word,
+                categoryDictionary.FirstOrDefault(pair => pair.Value.Contains(word)).Key,
+                wordDictionary[word].Meaning,
+                wordDictionary[word].ImagePath
+            ];
+
+            return wordInfo;
+        }
+
+        public bool ModifyWord(string initialWord, List<string> wordInfo)
+        {
+            if (initialWord != wordInfo[0] && wordDictionary.ContainsKey(wordInfo[0]))
+            {
+                return false;
+            }
+
+            wordDictionary.Remove(initialWord);
+            wordDictionary.Add(wordInfo[0], new MeaningAndImage()
+            {
+                Meaning = wordInfo[2],
+                ImagePath = wordInfo[3]
+            });
+
+            categoryDictionary[categoryDictionary.FirstOrDefault(pair => pair.Value.Contains(initialWord)).Key].Remove(initialWord);
+            if (categoryDictionary.ContainsKey(wordInfo[1]))
+                categoryDictionary[wordInfo[1]].Add(wordInfo[0]);
+            else categoryDictionary.Add(wordInfo[1], [wordInfo[0]]);
+
+            return UpdateXML();
+        }
     }
 }
 

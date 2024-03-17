@@ -23,7 +23,8 @@ namespace DEX
 
         private void BT_EditWord_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-
+            Window_ModifyWord wdModifyWord = new(DbHandler);
+            wdModifyWord.Show();
         }
 
         private void BT_DeleteWord_Click(object sender, System.Windows.RoutedEventArgs e)
