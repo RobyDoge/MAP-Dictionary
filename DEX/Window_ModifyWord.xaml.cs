@@ -102,9 +102,13 @@ namespace DEX
         private void BT_Save_Click(object sender, RoutedEventArgs e)
         {
             if (DbHandler.ModifyWord(InitialWord, wordInfo))
+            {
                 MessageBox.Show("Word modified successfully");
+                Close();
+            }
             else
                 MessageBox.Show("Word not found");
+            
         }
     }
 }

@@ -165,6 +165,17 @@ namespace DBHandlers
 
             return UpdateXML();
         }
+
+        public bool DeleteWord(string word)
+        {
+            if (!wordDictionary.ContainsKey(word))
+            {
+                return false;
+            }
+            wordDictionary.Remove(word);
+            categoryDictionary[categoryDictionary.FirstOrDefault(pair => pair.Value.Contains(word)).Key].Remove(word);
+            return UpdateXML();
+        }
     }
 }
 

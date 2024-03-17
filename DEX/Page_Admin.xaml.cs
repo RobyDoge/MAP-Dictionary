@@ -29,7 +29,8 @@ namespace DEX
 
         private void BT_DeleteWord_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-
+            WD_DeleteWord wdDeleteWord = new(DbHandler);
+            wdDeleteWord.Show();
         }
     }
 }
