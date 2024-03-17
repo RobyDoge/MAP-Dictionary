@@ -1,10 +1,10 @@
 <Words>
-  <Word name="tba" meaning="tba" imagePath="ba" category="tba" />
-  <Word name="tba1" meaning="tba" imagePath="ba" category="tba" />
-  <Word name="test2" meaning="tba" imagePath="ba" category="tba" />
-  <Word name="test3" meaning="tba" imagePath="ba" category="tba" />
-  <Word name="test1" meaning="tba" imagePath="ba" category="tba" />
-  <Word name="test4" meaning="tba" imagePath="ba" category="tba" />
-  <Word name="test5" meaning="tba" imagePath="ba" category="tba" />
-  <Word name="test6" meaning="tba" imagePath="ba" category="tba" />
+  <Word name="tba" meaning="tba" imagePath="Images/DEFAULT.PNG" category="tba" />
+  <Word name="tba1" meaning="tba" imagePath="Images/DEFAULT.PNG" category="tba" />
+  <Word name="test2" meaning="tba" imagePath="Images/DEFAULT.PNG" category="tba" />
+  <Word name="test3" meaning="tba" imagePath="Images/DEFAULT.PNG" category="tba" />
+  <Word name="test1" meaning="tba" imagePath="Images/DEFAULT.PNG" category="tba" />
+  <Word name="test4" meaning="tba" imagePath="Images/DEFAULT.PNG" category="tba" />
+  <Word name="test5" meaning="tba" imagePath="Images/DEFAULT.PNG" category="tba" />
+  <Word name="test6" meaning="tba" imagePath="Images/DEFAULT.PNG" category="tba" />
 </Words>

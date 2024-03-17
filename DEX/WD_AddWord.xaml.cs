@@ -1,23 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using DBHandlers;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-using DBHandlers;
 
 namespace DEX
 {
-    /// <summary>
-    /// Interaction logic for WD_AddWord.xaml
-    /// </summary>
     public partial class WD_AddWord : Window
     {
         private WordsDBHandler DbHandler { set; get; }
@@ -65,7 +51,7 @@ namespace DEX
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            // Open file dialog to select an image
+
             var openFileDialog = new Microsoft.Win32.OpenFileDialog
             {
                 Filter = "Image Files (*.jpg;*.jpeg;*.png;*.gif)|*.jpg;*.jpeg;*.png;*.gif"
@@ -73,10 +59,10 @@ namespace DEX
             var result = openFileDialog.ShowDialog();
 
             if (result != true) return;
-            // Get the selected image file path
+
             var imagePath = openFileDialog.FileName;
 
-            // Copy the image file to the "Images" folder in the project
+
             var imagesFolder = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Images");
             if (!System.IO.Directory.Exists(imagesFolder))
             {
@@ -87,7 +73,6 @@ namespace DEX
             var destinationPath = System.IO.Path.Combine(imagesFolder, imageName);
             System.IO.File.Copy(imagePath, destinationPath, true);
 
-            // Update the ImaginePath property with the copied image path
             var relativePath = System.IO.Path.GetRelativePath(AppDomain.CurrentDomain.BaseDirectory, destinationPath);
             ImaginePath = relativePath;
         }
@@ -109,7 +94,22 @@ namespace DEX
             {
                 MessageBox.Show("An error occurred while adding the word");
             }
-            
+
+        }
+
+        private void TB_Word_OnGotFocus(object sender, RoutedEventArgs e)
+        {
+            TB_Word.Text = "";
+        }
+
+        private void TB_Category_OnGotFocus(object sender, RoutedEventArgs e)
+        {
+            TB_Category.Text = "";
+        }
+
+        private void TB_Meaning_OnGotFocus(object sender, RoutedEventArgs e)
+        {
+            TB_Meaning.Text = "";
         }
     }
 }

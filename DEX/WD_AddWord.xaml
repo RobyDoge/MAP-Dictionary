@@ -16,6 +16,7 @@
                 VerticalAlignment="Top"
                 Click="BT_AddWord_Click" />
         <TextBox HorizontalAlignment="Left"
+                 GotFocus="TB_Word_OnGotFocus"
                  Text="add word"
                  Name="TB_Word"
                  Margin="10,13,0,0"
@@ -25,6 +26,7 @@
                  Height="34"
                  TextChanged="TB_Word_TextChanged" />
         <TextBox HorizontalAlignment="Left"
+                 GotFocus="TB_Category_OnGotFocus"
                  Name="TB_Category"
                  Margin="10,61,0,0"
                  TextWrapping="Wrap"
@@ -41,6 +43,7 @@
                   Width="56"
                   SelectionChanged="CB_Category_SelectionChanged" />
         <TextBox HorizontalAlignment="Left"
+                    GotFocus="TB_Meaning_OnGotFocus"
                  Name="TB_Meaning"
                  Margin="10,121,0,0"
                  TextWrapping="Wrap"

@@ -1,5 +1,4 @@
-﻿using System.Numerics;
-using System.Xml;
+﻿using System.Xml;
 
 namespace DBHandlers
 {
@@ -28,13 +27,10 @@ namespace DBHandlers
             {
                 string name = node.Attributes?["name"].Value.ToLower();
                 string meaning = node.Attributes?["meaning"].Value.ToLower();
-                string imagePath = node.Attributes?["imagePath"].Value.ToLower();
+                string imagePath = node.Attributes?["imagePath"].Value;
                 string category = node.Attributes?["category"].Value.ToLower();
-                if (imagePath == "")
-                {
-                    //TBA: default image
-                    imagePath = "tba";
-                }
+
+
                 MeaningAndImage meaningAndImage = new()
                 {
                     Meaning = meaning,
@@ -48,9 +44,10 @@ namespace DBHandlers
                 }
                 categoryDictionary[category].Add(name);
             }
+
         }
 
-        public KeyValuePair<string,MeaningAndImage> GetWord(string? word)
+        public KeyValuePair<string, MeaningAndImage> GetWord(string? word)
         {
             return wordDictionary.FirstOrDefault(pair => pair.Key == word);
         }
@@ -78,7 +75,7 @@ namespace DBHandlers
             if (imagePath == "")
             {
                 //TBA: default image
-                imagePath = "tba";
+                imagePath = "Images/DEFAULT.PNG";
             }
 
             if (!categoryDictionary.ContainsKey(category))
@@ -114,7 +111,7 @@ namespace DBHandlers
                 wordNode.Attributes.Append(meaningAttribute);
 
                 XmlAttribute imagePathAttribute = xmlDoc.CreateAttribute("imagePath");
-                imagePathAttribute.Value = word.Value.ImagePath[1..]; // Remove the first character of the image path
+                imagePathAttribute.Value = word.Value.ImagePath[0] == '/' ? word.Value.ImagePath[1..] : word.Value.ImagePath;
                 wordNode.Attributes.Append(imagePathAttribute);
 
                 XmlAttribute categoryAttribute = xmlDoc.CreateAttribute("category");

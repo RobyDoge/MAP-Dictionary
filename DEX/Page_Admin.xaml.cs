@@ -1,5 +1,5 @@
-﻿using System.Windows.Controls;
-using DBHandlers;
+﻿using DBHandlers;
+using System.Windows.Controls;
 
 namespace DEX
 {

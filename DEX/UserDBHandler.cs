@@ -1,16 +1,10 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml;
+﻿using System.Xml;
 
 namespace DBHandlers
 {
     internal static class UserDBHandler
     {
-        public static bool CheckUsernameAndPassword(string username,string password)
+        public static bool CheckUsernameAndPassword(string username, string password)
         {
             const string path = "../../../AdminDB.xml";
             XmlDocument xmlDoc = new();

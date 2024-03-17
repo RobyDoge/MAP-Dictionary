@@ -1,12 +1,9 @@
 ﻿
 using System.Windows;
-using System.Windows.Controls;
-
-using DBHandlers;
 
 namespace DEX
 {
-    
+
     public partial class MainWindow : Window
     {
         public MainWindow()
@@ -21,6 +18,6 @@ namespace DEX
             contentFrame.Content = page1;
         }
     }
-    
+
 
 }

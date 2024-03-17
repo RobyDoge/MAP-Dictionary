@@ -1,7 +1,6 @@
-﻿using System.Windows;
+﻿using DBHandlers;
+using System.Windows;
 using System.Windows.Controls;
-
-using DBHandlers;
 
 namespace DEX
 {
