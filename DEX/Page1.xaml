@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:DEX"
       mc:Ignorable="d"
       d:DesignHeight="789"
-      d:DesignWidth="1366"
+      d:DesignWidth="1365"
       Title="Page1">
 
     <Page.Resources>
@@ -29,6 +29,7 @@
         </Grid.ColumnDefinitions>
         <Frame Name="DescriptionFrame"></Frame>
         <Frame Name="AdminFrame"></Frame>
+        <Frame Name="GameFrame"></Frame>
         <Button x:Name="BT_Login"
                 Content="Login"
                 HorizontalAlignment="Left"
@@ -49,7 +50,8 @@
                 BorderBrush="#FFB6FB42"
                 Background="#FFEAFB4F"
                 FontSize="25"
-                Grid.Column="1" />
+                Grid.Column="1"
+                Click="Button_Click" />
         <TextBox x:Name="TB_SearchBar"
                  HorizontalAlignment="Left"
                  Margin="289,225,0,0"

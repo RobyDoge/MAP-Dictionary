@@ -118,7 +118,7 @@ namespace DBHandlers
                 categoryAttribute.Value = categoryDictionary.FirstOrDefault(pair => pair.Value.Contains(word.Key)).Key;
                 wordNode.Attributes.Append(categoryAttribute);
 
-                rootNode.AppendChild(wordNode);
+                rootNode.AppendChild(wordNode); 
             }
 
             xmlDoc.Save("../../../WordsDB.xml");
@@ -175,6 +175,29 @@ namespace DBHandlers
             wordDictionary.Remove(word);
             categoryDictionary[categoryDictionary.FirstOrDefault(pair => pair.Value.Contains(word)).Key].Remove(word);
             return UpdateXML();
+        }
+
+        public string[][] GetWordsForGame()
+        {
+            var words = wordDictionary.Keys.ToArray();
+            var random = new Random();
+            var randomWords = words.OrderBy(x => random.Next()).Take(5).ToArray();
+
+            string[][] wordsForGame = new string[5][];
+            for (int i = 0; i < 5; i++)
+            {
+                if (wordDictionary[randomWords[i]].ImagePath== "Images/DEFAULT.PNG")
+                    wordsForGame[i] = new string[2];
+                else
+                {
+                    wordsForGame[i] = new string[3];
+                    wordsForGame[i][2] = wordDictionary[randomWords[i]].ImagePath;
+                }
+                wordsForGame[i][0] = randomWords[i];
+                wordsForGame[i][1] = wordDictionary[randomWords[i]].Meaning;
+            }
+
+            return wordsForGame;
         }
     }
 }

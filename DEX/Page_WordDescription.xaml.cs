@@ -25,9 +25,6 @@ namespace DEX
             bitmap.UriSource = new Uri(absolutePath);
             bitmap.EndInit();
             IM_Image.Source = bitmap;
-
-
-
         }
     }
 }

@@ -72,5 +72,12 @@ namespace DEX
             Page_Admin pageAdmin = new(wordsDBHandler);
             NavigationService?.Navigate(pageAdmin);
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            string[][] gameWords = wordsDBHandler.GetWordsForGame();
+            Page_Game pageGame = new(gameWords);
+            NavigationService?.Navigate(pageGame);
+        }
     }
 }

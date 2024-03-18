@@ -1,8 +1,8 @@
 <Words>
-  <Word name="tba" meaning="tba" imagePath="Images/DEFAULT.PNG" category="tba" />
-  <Word name="tba1" meaning="tba" imagePath="Images/DEFAULT.PNG" category="tba" />
-  <Word name="test2" meaning="tba" imagePath="Images/DEFAULT.PNG" category="tba" />
-  <Word name="test4" meaning="tba" imagePath="Images/DEFAULT.PNG" category="tba" />
-  <Word name="test5" meaning="tba" imagePath="Images/DEFAULT.PNG" category="tba" />
-  <Word name="test6" meaning="tba" imagePath="Images/DEFAULT.PNG" category="tba" />
+  <Word name="mar" meaning="fruct" imagePath="Images/DEFAULT.PNG" category="tba" />
+  <Word name="andrei" meaning="om" imagePath="Images/DEFAULT.PNG" category="tba" />
+  <Word name="masina" meaning="autovehicul" imagePath="Images/DEFAULT.PNG" category="tba" />
+  <Word name="pastarnac" meaning="leguma" imagePath="Images/DEFAULT.PNG" category="tba" />
+  <Word name="ceai" meaning="bautura fierbinte pe baza de frunze uscate" imagePath="Images/DEFAULT.PNG" category="tba" />
+  <Word name="tastatura" meaning="instrument de scris la calculator" imagePath="Images/DEFAULT.PNG" category="tba" />
 </Words>
